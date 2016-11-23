@@ -1,14 +1,63 @@
+<form [formGroup]="contactForm" *ngIf="active" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input type="text" id="name" class="form-control"
+           formControlName="name" required>
+    <div *ngIf="formErrors.name" class="alert alert-danger">{{formErrors.name}}</div>
+  </div>
+
+</form>
+
+<!--
 <div class="well">
   <div class="container">
     <h1>Contact us</h1>
-    <form action="">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" required>
-
+    <form action="" #contactForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name"
+                 required
+                 [(ngModel)]="model.name" name="name"
+                 #name="ngModel"
+                 #spy>
+          <div class="alert alert-danger"
+               [hidden]="name.valid || name.pristine">Name is required
+          </div>
+          <span class="text-info" style="font-size: small">{{spy.className}}</span>
+        </div>
+        <div class="form-group">
+          <label for="email"></label>
+          <input type="email" class="form-control" id="email"
+                 required
+                 [(ngModel)]="model.mail" name="email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="birthdate">birth date</label>
+          <input type="date" class="form-control" id="birthdate"
+                 required
+                 [(ngModel)]="model.birthdate" name="birthdate">
+        </div>
+        <div class="form-group">
+          <label for="power">HeroPower</label>
+          <select name="power" id="power" class="form-control" required>
+            <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <textarea name="message" id="message" cols="35" rows="3"
+                    class="form-control"></textarea>
+        </div>
       </div>
 
-
+      <button type="submit" class="btn btn-default" [disabled]="!contactForm.form.valid">Submit</button>
+      <button type="reset" class="btn btn-danger disabled">Reset</button>
     </form>
   </div>
+
 </div>
+<span class="text-info" style="font-size: small">{{diagnostic}}</span>
+-->

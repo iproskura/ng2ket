@@ -8,22 +8,14 @@ import { Contact } from "./contact";
 })
 export class ContactsComponent implements OnInit {
 
+  model = new Contact(1, 'Ingwar', 'ingwar@gmail.com', new Date());
+  submitted = false;
+
   constructor() {
   }
 
   ngOnInit() {
   }
-
-  powers = [
-    'Cute',
-    'Really smart',
-    'Handsome',
-    'Weather Chandger',
-    'Superman',
-    'Supergirl'];
-
-  model = new Contact(1, 'Ingwar', 'ingwar@gmail.com', new Date(), this.powers[4]);
-  submitted = false;
 
   onSubmit() {
     this.submitted = true;
@@ -32,5 +24,4 @@ export class ContactsComponent implements OnInit {
   get diagnostic() {
     return JSON.stringify(this.model)
   }
-
 }

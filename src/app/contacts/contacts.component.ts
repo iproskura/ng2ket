@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Contact } from "./contact";
 import { FormGroup, FormBuilder, Validator, Validators, NgForm } from "@angular/forms";
+import {} from 'ng2-cooki'
 import { setupTestingRouter } from "@angular/router/testing";
 
 @Component({

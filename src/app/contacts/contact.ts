@@ -1,8 +1,8 @@
 export class Contact {
 
-  constructor(public name: string,
+  constructor(public id: number,
+              public name: string,
               public mail: string,
-              public message: string,
-              public id?: number) {
+              public message?: string) {
   }
 }

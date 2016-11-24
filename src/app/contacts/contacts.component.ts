@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { FormGroup, FormBuilder, Validator, Validators, NgForm, FormControl } from "@angular/forms";
 import { Contact } from "./contact";
-import { FormGroup, FormBuilder, Validator, Validators, NgForm } from "@angular/forms";
-import {} from 'ng2-cooki'
+import { Cookie } from 'ng2-cookies/ng2-cookies'
 import { setupTestingRouter } from "@angular/router/testing";
 
 @Component({
@@ -9,78 +9,25 @@ import { setupTestingRouter } from "@angular/router/testing";
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.css']
 })
-export class ContactsComponent implements OnInit {
-  submitted = false;
-  contact: Contact;
-  contactForm: NgForm;
-  @ViewChild('contactForm')
-  currentForm: NgForm;
+export class ContactsComponent{
+  usernameCtrl: FormControl;
+  usermailCtrl: FormControl;
+  usermessageCtrl: FormControl;
+  userForm: FormGroup;
 
-  formErrors = {
-    'name': '',
-    'email': ''
-  };
 
-  constructor(private fb: FormBuilder) {
+  constructor(fb: FormBuilder){
+    this.usernameCtrl = fb.control('', Validators.compose([Validators.required, Validators.minLength(3)]));
+    this.usermailCtrl = fb.control('', Validators.compose([Validators.required, Validators.pattern('/[a-zA-Z0-9_@.]+$/')]));
+    this.usermessageCtrl  = fb.control('', Validators.required);
+    this.userForm = fb.group({
+      username: this.usernameCtrl,
+      email: this.usermailCtrl,
+      message: this.usermessageCtrl
+    });
   }
 
-  ngOnInit(): void {
-
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    this.contact = this.contactForm.value;
-  }
-
-  ngAfterViewChecked() {
-    this.formChanged();
-  }
-
-  formChanged() {
-    if (this.currentForm === this.contactForm) {
-      return;
-    }
-
-    this.contactForm = this.currentForm;
-    if (this.contactForm) {
-      this.contactForm.valueChanges
-        .subscribe(data => this.onValueChanged(data));
-    }
-  }
-
-  onValueChanged(data?: any) {
-    if (!this.contactForm) {
-      return
-    }
-    const form = this.contactForm.form;
-
-    for (const field in this.formErrors) {
-      this.formErrors[field] = '';
-      const control = form.get(field);
-
-      if (control && control.dirty && !control.valid) {
-        const messages = this.validationMessage[field];
-        for (const key in control.errors) {
-          this.formErrors[field] += messages[key] + ' ';
-        }
-      }
-    }
-  }
-
-  validationMessage = {
-    name: {
-      'required': 'Name is required.',
-      'minlength': 'Name must be at least 4 chars long.',
-      'maxlength': 'Name cannot bo more than 20 chars long.',
-      'forbiddenName': 'Someone named "Bob" cannot be a hero.'
-    },
-    email: {
-      'required': 'email is required.'
-    }
-  }
-
-  get diagnostic() {
-    // return JSON.stringify(this.model)
+  register(){
+    console.log(this.userForm.value);
   }
 }

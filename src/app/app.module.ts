@@ -14,6 +14,7 @@ import { Services1Component } from "./services1/services1.component";
 import { Services2Component } from "./services2/services2.component";
 import { StatisticsComponent } from "./statistics/statistics.component";
 import { TeamComponent } from "./team/team.component";
+import { Ng2PageScrollModule } from "ng2-page-scroll";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TeamComponent } from "./team/team.component";
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2PageScrollModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

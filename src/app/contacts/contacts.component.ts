@@ -17,8 +17,8 @@ export class ContactsComponent{
 
 
   constructor(fb: FormBuilder){
-    this.usernameCtrl = fb.control('', Validators.compose([Validators.required, Validators.minLength(3)]));
-    this.usermailCtrl = fb.control('', Validators.compose([Validators.required, Validators.pattern('/[a-zA-Z0-9_@.]+$/')]));
+    this.usernameCtrl = fb.control(Cookie.get('username'), Validators.compose([Validators.required, Validators.minLength(3)]));
+    this.usermailCtrl = fb.control(Cookie.get('email'), Validators.compose([Validators.required]));
     this.usermessageCtrl  = fb.control('', Validators.required);
     this.userForm = fb.group({
       username: this.usernameCtrl,
@@ -27,7 +27,15 @@ export class ContactsComponent{
     });
   }
 
+
+
   register(){
+    Cookie.set('username', this.userForm.value.username, 10);
+    Cookie.set('email', this.userForm.value.email, 10);
     console.log(this.userForm.value);
   }
 }
+
+/*
+Validators.pattern('/^\w+@[a-zA-Z_]+?\.[a-zA-Z]+$/')
+*/

@@ -1,3 +1,17 @@
-<p>
-  services1 works!
-</p>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let serv of services" class="col-md-3 col-lg-3 col-sm-3">
+      <div class="" (click)="showMessage(serv.id)">
+        <img src="../../img/{{serv.src}}" [alt]="serv.name"><br>
+        <h5>{{serv.name | lowercase}}</h5>
+      </div>
+    </div>
+  </div>
+  <span [ngSwitch]="messageId">
+    <span *ngSwitchCase="1">Mysterious ionic cannons lead to the x-ray vision.</span>
+    <span *ngSwitchCase="2">Admirals harvest on sonic shower at deep space!</span>
+    <span *ngSwitchCase="3">The crazy sonic shower unearthly disrupts the mermaid.</span>
+    <span *ngSwitchCase="4">Tremble wihtout plasma, and we won’t imitate a crew.</span>
+    <span *ngSwitchDefault="">Liberi de altus contencio, reperire racana!</span>
+  </span>
+</div>

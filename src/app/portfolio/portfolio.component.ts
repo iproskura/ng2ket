@@ -16,7 +16,7 @@ export class PortfolioComponent implements OnInit {
   ngOnInit() {
   };
 
-  selector(sel :number){
+  selector(sel: number) {
     this.selection = sel;
   }
 
@@ -28,6 +28,7 @@ class Portfolio {
   category: string;
   imgSrc: string;
 }
+
 
 const portfolioes: Portfolio[] = [
   {
@@ -68,3 +69,4 @@ const portfolioes: Portfolio[] = [
     imgSrc: 'team3.png'
   }
 ];
+

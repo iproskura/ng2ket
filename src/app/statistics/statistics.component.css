@@ -1,0 +1,15 @@
+.container {
+  padding-top: 30px;
+  padding-bottom: 30px
+}
+
+.stats-count {
+  font-size: 2em;
+}
+
+.stats-message {
+  margin-top: 10px;
+  padding-top: 10px;
+  font-size: 0.6em;
+  font-variant-caps: all-petite-caps;
+}

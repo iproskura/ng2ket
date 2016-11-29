@@ -7,7 +7,7 @@
     <form (ngSubmit)="register(userForm.value)" [formGroup]="userForm">
       <div class="row">
         <div class="form-group col-md-6">
-          <input type="text" class="form-control" id="name" placeholder="enter your name"
+          <input type="text" class="form-control" id="name" placeholder="enter your message"
                  required minlength="4" maxlength="25" forbiddenName="bob"
                  name="name"
                  formControlName="username">
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="form-group col-md-6">
-          <input type="email" class="form-control" id="email" placeholder="your@name.com"
+          <input type="email" class="form-control" id="email" placeholder="your@message.com"
                  required
                  formControlName="email"
                  name="email">

@@ -15,6 +15,7 @@ import { Services2Component } from "./services2/services2.component";
 import { StatisticsComponent } from "./statistics/statistics.component";
 import { TeamComponent } from "./team/team.component";
 import { Ng2PageScrollModule } from "ng2-page-scroll";
+import { Counto } from 'angular2-counto/angular2-counto';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { Ng2PageScrollModule } from "ng2-page-scroll";
     Services2Component,
     PortfolioComponent,
     StatisticsComponent,
-    TeamComponent
+    TeamComponent,
+    Counto
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,42 @@
 <div class="container row center-block">
-  <div *ngFor="let item of stats; let ind=index" class="col-md-3 col-lg-3 text-center">
-    <div><img src="../../img/{{item.imgSrc}}" alt=""></div>
-    <div class="stats-count" >
-      <counto [step]="30" [countTo]="stats[ind].count" [countFrom]="0" [duration]="5" (countoChange)="intermediate = $event">
-        {{intermediate | number:'1.0-0' }}
+  <div class="col-md-3 col-lg-3 text-center">
+    <div><img src="../../img/stat_01.png" alt=""></div>
+    <div class="stats-count">
+      <counto [step]="30" [countTo]="stats[0].count" [countFrom]="0" [duration]="3" (countoChange)="myProjects = $event">
+        {{ myProjects | number:'1.0-0' }}
       </counto>
     </div>
-    <div class="stats-message">{{item.message}}</div>
+    <div class="stats-message">{{ stats[0].message }}</div>
+  </div>
+
+  <div class="col-md-3 col-lg-3 text-center">
+    <div><img src="../../img/stat_02.png" alt=""></div>
+    <div class="stats-count">
+      <counto [step]="30" [countTo]="stats[1].count" [countFrom]="0" [duration]="3" (countoChange)="myClicks = $event">
+        {{ myClicks | number:'1.0-0' }}
+      </counto>
+    </div>
+    <div class="stats-message">{{ stats[1].message }}</div>
+  </div>
+
+  <div class="col-md-3 col-lg-3 text-center">
+    <div><img src="../../img/stat_03.png" alt=""></div>
+    <div class="stats-count">
+      <counto [step]="30" [countTo]="stats[2].count" [countFrom]="0" [duration]="3" (countoChange)="myMails = $event">
+        {{ myMails | number:'1.0-0' }}
+      </counto>
+    </div>
+    <div class="stats-message">{{ stats[2].message }}</div>
+  </div>
+
+  <div class="col-md-3 col-lg-3 text-center">
+    <div><img src="../../img/stat_04.png" alt=""></div>
+    <div class="stats-count">
+      <counto [step]="30" [countTo]="stats[3].count" [countFrom]="0" [duration]="3" (countoChange)="myJokes = $event">
+        {{ myJokes | number:'1.0-0' }}
+      </counto>
+    </div>
+    <div class="stats-message">{{ stats[3].message }}</div>
   </div>
 </div>
+

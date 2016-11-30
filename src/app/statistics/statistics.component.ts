@@ -31,7 +31,7 @@ const stats: Stats[] = [
   }, {
     id: 2,
     message: 'clicks presed',
-    count: 7234873,
+    count: 934873,
     imgSrc: 'stat_02.png',
   }, {
     id: 3,

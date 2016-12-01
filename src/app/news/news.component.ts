@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { NewsService } from "./news.service";
+import { Article } from "./article";
 
 @Component({
   selector: 'app-news',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
+  news: Article[];
+  newsLimit = 7;
 
-  constructor() { }
+  constructor(private newsService: NewsService) {
+  }
 
   ngOnInit() {
+    this.getNews();
+  }
+
+  getNews(): void {
+    this.news = this.newsService.getNews();
+  }
+
+  readMore(id): void {
+    console.log('readMore(id: ' + this.news[id].id +'), { ' + this.news[id].description + '}');
   }
 
 }

@@ -27,3 +27,8 @@ export class NewsComponent implements OnInit {
   }
 
 }
+
+
+//TODO Article: date : string => Date()
+//TODO orderBy date
+//TODO limitNumberOfNews by attr

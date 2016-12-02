@@ -3,7 +3,10 @@
     <div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 bordered">
       <div *ngFor="let item of news; let i=index" class="row bordered">
         <div *ngIf="i<newsLimit">
-          <div class="col-md-3">{{ item.date }}</div>
+          <div class="col-md-3">
+            <div>{{ item.date | date:'dd' }}</div>
+            <div>{{ item.date | date:'MMM' }}</div>
+          </div>
           <div class="col-md-9"> {{ item.description }}
             <span (click)="readMore(item.id)" class="readMore pull-right">Read more >></span>
           </div>

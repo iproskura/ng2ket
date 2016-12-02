@@ -9,7 +9,7 @@ import { Article } from "./article";
 })
 export class NewsComponent implements OnInit {
   news: Article[];
-  newsLimit = 7;
+  newsLimit = 25;
 
   constructor(private newsService: NewsService) {
   }

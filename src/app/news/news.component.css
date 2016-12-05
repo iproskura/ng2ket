@@ -1,5 +1,24 @@
 .readMore {
-  text-decoration: underline;
+  /*text-decoration: underline;*/
   font-size: small;
 }
 
+.readMore:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--main-color);
+}
+
+.date-day {
+  color: var(--main-color);
+  font-size: 1.6em;
+}
+
+.date-month {
+  font-size: 0.8em;
+}
+
+.news > .row .row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -1,20 +1,22 @@
-<h1 class="text-center">Our portfolio</h1>
-<div class="line"></div>
-<div class="col-lg-8 col-lg-offset-2" id="portfolioButtons">
-  <div class="btn-group-justified">
-    <div role="button" class="btn btn-info" (click)="selector(0)">All</div>
-    <div role="button" class="btn btn-info" (click)="selector(1)">Web</div>
-    <div role="button" class="btn btn-info" (click)="selector(2)">Design</div>
-    <div role="button" class="btn btn-info" (click)="selector(3)">Photography</div>
+<div id="portfolio" class="container">
+  <h1 class="text-center">Our portfolio</h1>
+  <div class="line"></div>
+  <div class="" id="portfolioButtons">
+    <div class="btn-group-justified">
+      <div role="button" class="btn btn-info" (click)="selector(0)">All</div>
+      <div role="button" class="btn btn-info" (click)="selector(1)">Web</div>
+      <div role="button" class="btn btn-info" (click)="selector(2)">Design</div>
+      <div role="button" class="btn btn-info" (click)="selector(3)">Photography</div>
+    </div>
   </div>
-</div>
-<br>
-<div class="container">
-  <div class="row">
-    <div *ngFor="let item of portfolio" class="col-sm-2 padding-none">
-      <div *ngIf="item.category !== categories[selection] && selection !== 0" class="mask">
+  <br>
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let item of portfolio" class="col-sm-2 padding-none">
+        <div *ngIf="item.category !== categories[selection] && selection !== 0" class="mask">
+        </div>
+        <img src="../../img/{{item.imgSrc}}" alt="" class="img-responsive">
       </div>
-      <img src="../../img/{{item.imgSrc}}" alt="" class="img-responsive">
     </div>
   </div>
 </div>

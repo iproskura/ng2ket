@@ -1,8 +1,9 @@
-<div class="container row center-block">
+<div id="statistics" class="container row center-block">
   <div class="col-md-3 col-lg-3 text-center">
     <div><img src="../../img/stat_01.png" alt=""></div>
     <div class="stats-count">
-      <counto [step]="30" [countTo]="stats[0].count" [countFrom]="0" [duration]="3" (countoChange)="myProjects = $event">
+      <counto [step]="30" [countTo]="stats[0].count" [countFrom]="0" [duration]="3"
+              (countoChange)="myProjects = $event">
         {{ myProjects | number:'1.0-0' }}
       </counto>
     </div>

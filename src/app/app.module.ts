@@ -18,6 +18,7 @@ import { Services2Component } from "./services2/services2.component";
 import { StatisticsComponent } from "./statistics/statistics.component";
 import { TeamComponent } from "./team/team.component";
 import { NewsService } from "./news/news.service";
+import { LimitToPipe } from './limit-to.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NewsService } from "./news/news.service";
     PortfolioComponent,
     StatisticsComponent,
     TeamComponent,
-    Counto
+    Counto,
+    LimitToPipe
   ],
   imports: [
     BrowserModule,
